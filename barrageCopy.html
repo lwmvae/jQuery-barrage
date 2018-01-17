@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>弹幕</title>
+    <link rel="stylesheet" type="text/css" href="css/emoji.css">
+    <link rel="stylesheet" type="text/css" href="css/barrager.css">
+</head>
+
+<body>
+    <div class="btn show">
+        <p></p>
+    </div>
+    <div class="list">
+        <div class="header">
+            <h1>微信弹幕排行榜</h1>
+        </div>
+        <div class="list-wrapper">
+            <ul>
+                <li class="second">
+                    <div class="head">
+                        <img src="img/demo.jpg">
+                        <p class="order">2</p>
+                    </div>
+                    <div class="info">
+                        <p title="微信昵称微信昵称">微信昵称微信昵称</p>
+                        <span>9998条</span>
+                    </div>
+                </li>
+                <li class="first">
+                    <div class="head">
+                        <img src="img/demo.jpg">
+                        <p class="order">1</p>
+                    </div>
+                    <div class="info">
+                        <p title="微信昵称">微信昵称</p>
+                        <span>9998条</span>
+                    </div>
+                </li>
+                <li class="third">
+                    <div class="head">
+                        <img src="img/demo.jpg">
+                        <p class="order">3</p>
+                    </div>
+                    <div class="info">
+                        <p title="微信昵称微信昵称">微信昵称微信昵称</p>
+                        <span>9998条</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <th>名次</th>
+                    <th>微信昵称</th>
+                    <th>弹幕条数</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <p title="张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三">张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三张三</p>
+                        </td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <p title="张三">张三</p>
+                        </td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/emoji.js"></script>
+<script type="text/javascript" src="js/barrageCopy.js"></script>
+<script type="text/javascript">
+$(function() {
+
+
+    // setInterval(function() {
+    var num = Math.ceil(Math.random() * 10);
+    //微信头像、所发内容
+    var item = { 'img': 'img/demo.jpg', 'info': '第' + num + '条😎😎😎弹/::)幕/::)/::)[太阳]' };
+    $('body').barrager(item);
+    // }, 1000);
+
+
+    //点击显示排名
+    $('html').delegate('.show', 'click', function() {
+        $(".list").animate({
+            'right': '70px'
+        }, 500);
+        $(this).css('transform', 'rotate(180deg)');
+        $(this).removeClass('show');
+        $(this).addClass('close');
+    });
+
+    //点击隐藏排名
+    $('html').delegate('.close', 'click', function() {
+        $(".list").animate({
+            'right': '-400px'
+        }, 500);
+        $(this).css('transform', 'rotate(0deg)')
+        $(this).removeClass('close');
+        $(this).addClass('show');
+    })
+
+
+});
+</script>
+
+</html>
